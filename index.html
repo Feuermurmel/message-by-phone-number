@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Message by Phone Number</title>
+
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <input id="input" type="text" placeholder="+41 79 499 70 40" />
+    <p><a id="telegram"></a></p>
+    <p><a id="whatsapp"></a></p>
+
+    <script>
+      let getInputElem = () => document.getElementById('input');
+
+      let updateLinks = () => {
+        let number = getInputElem().value.trim() || getInputElem().placeholder;
+
+        let updateLink = (elem, messengerName, baseURL) => {
+          elem.href = `${baseURL}${number.replace(/[^+0-9]/g, '')}`;
+          elem.textContent = `Message ${number} on ${messengerName}`;
+        };
+
+        updateLink(document.getElementById('telegram'), 'Telegram', 'https://t.me/');
+        updateLink(document.getElementById('whatsapp'), 'WhatsApp', 'https://wa.me/');
+      };
+
+      getInputElem().addEventListener('input', updateLinks);
+      updateLinks();
+    </script>
+  </body>
+</html>
