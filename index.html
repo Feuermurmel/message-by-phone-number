@@ -15,6 +15,7 @@
     <input id="input" type="text" placeholder="+41 79 499 70 40" />
     <p><a id="telegram"></a></p>
     <p><a id="whatsapp"></a></p>
+    <p><a id="signal"></a></p>
 
     <script>
       let getInputElem = () => document.getElementById('input');
@@ -29,6 +30,7 @@
 
         updateLink(document.getElementById('telegram'), 'Telegram', 'https://t.me/');
         updateLink(document.getElementById('whatsapp'), 'WhatsApp', 'https://wa.me/');
+        updateLink(document.getElementById('signal'), 'Signal', 'https://signal.me/#p/');
       };
 
       getInputElem().addEventListener('input', updateLinks);
